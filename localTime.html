@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--设置绝对定位-->
+	<style type="text/css"> 
+	h2.pos_abs
+	{
+		position:absolute;
+		left:250px;
+		top:150px
+	}
+</style>
+    <script type="text/javascript">
+        //显示时钟
+        function startTime() {
+            var today = new Date()
+            var h = today.getHours()
+            var m = today.getMinutes()
+            var s = today.getSeconds()
+            // add a zero in front of numbers<10
+            m = checkTime(m)
+            s = checkTime(s)
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s
+            t = setTimeout('startTime()', 500)
+        }
+
+        function checkTime(i) {
+            if (i < 10)
+            { i = "0" + i }
+            return i
+        }
+		
+		function PageBack()
+		{
+			window.history.back(-1);
+		}
+    </script>
+</head>
+
+<body onload="startTime()">
+    <h2 class="pos_abs"><div id="txt" style="color:red;font-size:500%;font-family: Consolas;font-weight:bold"></div></h2>  <!--显示时钟-->
+	<h3><font style="font-size:200%;color:green:font-weight:bold">本地时间：</font>  <input type="button" value="返回上一页" onclick="PageBack();" style="color:red;font-size:120%"/></h3>
+	
+</body>
+</html>
