@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- <style type="text/css"> -->
+		<!-- body { -->
+		<!-- background-image:url(test.jpg); -->
+		<!-- } -->
+	<!-- </style> -->
+	<script type="text/javascript">
+        //显示时钟
+        function startTime() {
+            var today = new Date()
+            var h = today.getHours()
+            var m = today.getMinutes()
+            var s = today.getSeconds()
+            // add a zero in front of numbers<10
+            m = checkTime(m)
+            s = checkTime(s)
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s
+            t = setTimeout('startTime()', 500)
+        }
+
+        function checkTime(i) {
+            if (i < 10)
+            { i = "0" + i }
+            return i
+        }
+	</script>
+</head>
+
+<body onload="startTime()" style="background-image:url(test.jpg);background-size:auto;">
+	<input type="button" value="返回上一页" onclick="javascript:history.go(-1);" style="font-size:150%;color:white;background-color:gray" />
+	<h2 class="pos_abs"><div id="txt" style="color:#4689FF;font-size:500%;font-family: Consolas;font-weight:bold"></div></h2>  <!--显示时钟-->
+</body>
+</html>
