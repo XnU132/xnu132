@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />     
+<meta name="apple-mobile-web-app-capable" content="yes" />    
+<meta name="format-detection" content="telephone=no" />  
+    <script type="text/javascript">
+        //显示时钟
+        function startTime() {
+            var today = new Date()
+            var h = today.getHours()
+            var m = today.getMinutes()
+            var s = today.getSeconds()
+            // add a zero in front of numbers<10
+            m = checkTime(m)
+            s = checkTime(s)
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s
+            t = setTimeout('startTime()', 500)
+        }
+
+        function checkTime(i) {
+            if (i < 10)
+            { i = "0" + i }
+            return i
+        }
+    </script>
+</head>
+
+<body onload="startTime()">
+    <script>
+        ////创建时间对象
+        //var date = new Date();
+        ////获取世界时间，会提示当前时区
+        //alert(date.toString());
+        ////获取当前时区的当前时间
+        //alert(date.toLocaleString());
+
+        //代码分离（一般不将html与js混合写）
+        function showTime()
+        {
+            var date = new Date();
+            alert(date.toLocaleString());
+        }
+    </script>
+	<h1><input type="button" value="返回上一页" onclick="javascript:history.go(-1);" style="font-size:60%;font-family:微软雅黑;color:red" /></h1>
+    <h2><input type="button" value="点击显示当前时间" onclick="showTime();"style="font-size:80%;font-family:微软雅黑"/></h2>
+	<h3 onclick="this.innerHTML='谢谢!'" style="font-size:150%">请点击该文本</h3>
+	
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:green;width:120px;height:20px;padding:40px;color:#ffffff;">把鼠标移到上面</div>
+
+<script>
+function mOver(obj)
+{
+obj.style="background-color:red;width:120px;height:20px;padding:40px;color:#ffffff;"
+obj.innerHTML="这是一个测试"
+}
+
+function mOut(obj)
+{
+obj.style="background-color:green;width:120px;height:20px;padding:40px;color:#ffffff;"
+obj.innerHTML="把鼠标移到上面"
+}
+</script>
+
+<h1>   </h1>
+<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:black;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">请点击这里</div>
+
+<script>
+function mDown(obj)
+{
+obj.style.backgroundColor="#1ec5e5";
+obj.innerHTML="请释放鼠标按钮"
+}
+
+function mUp(obj)
+{
+obj.style.backgroundColor="green";
+obj.innerHTML="请按下鼠标按钮"
+}
+</script>
+
+<h1>   </h1>
+
+    <div id="txt" style="font-size:50px;font-family:华文琥珀"></div>  <!--显示时钟-->
+</body>
+</html>
