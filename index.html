@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MainPage</title>
+	<style type="text/css">
+	h1.btn{
+		width:200px;
+		height:50px;
+		display:inline-block;
+	}
+</style>
+</head>
+<body>
+    <script language="javascript" type="text/javascript">
+		function ToPastHomePage()
+		{
+			window.location.href = "http://xnu132.win/iisstart.htm";
+		}
+        function ToLocalTimePage() {
+            window.location.href = "http://xnu132.win/localTime.html";
+        }
+		function ToAppConfigPage()
+		{
+			window.location.href = "http://xnu132.win/Appconfig/appConfig.html";
+		}
+		function ToTestPage()
+		{
+			window.location.href = "http://xnu132.win/Test/test.html";
+		}
+		function ToBlogDemo_1()
+		{
+			window.location.href = "http://xnu132.win/BlogDemo/Demo_1/index.html";
+		}
+		function ToBlogDemo_2()
+		{
+			window.location.href = "http://xnu132.win/BlogDemo/Demo_2/index.html";
+		}
+    </script>
+    <h1 class="btn">
+		<input type="button" value="原默认主页" onclick="ToPastHomePage();" style="font-size:150%;color:black;font-family:微软雅黑"/>
+		<input type="button" value="本地时间" onclick="ToLocalTimePage();" style="font-size:150%;color:green;font-family:微软雅黑"/>
+		<input type="button" value="配置接口" onclick="ToAppConfigPage();" style="font-size:150%;color:#46AFFF;font-family:微软雅黑"/>
+		<input type="button" value="新功能测试" onclick="ToTestPage();" style="font-size:150%;color:red;font-family:微软雅黑"/>
+		<input type="button" value="BlogDemo_1" onclick="ToBlogDemo_1();" style="font-size:150%;color:#FF8900;font-family:Consolas"/>
+		<input type="button" value="BlogDemo_2" onclick="ToBlogDemo_2();" style="font-size:150%;color:#4689FF;font-family:Consolas"/>
+	</h1>
+</body>
+</html>
