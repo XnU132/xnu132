@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Xn.U的博客">
 <meta property="og:description" content="个人总结常用的几个 【标题】  123456# 标题1## 标题2### 标题3#### 标题4##### 标题5###### 标题6 【显示效果】 标题1标题2标题3标题4标题5标题6 【字体加粗】  1**目标文本** 【显示效果】 目标文本">
 <meta property="og:image" content="//xnu132.ml/assets/blogImg/DP-170612-0.png">
-<meta property="og:updated_time" content="2017-06-14T04:36:12.787Z">
+<meta property="og:updated_time" content="2017-06-14T04:43:08.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MarkDown的使用教程">
 <meta name="twitter:description" content="个人总结常用的几个 【标题】  123456# 标题1## 标题2### 标题3#### 标题4##### 标题5###### 标题6 【显示效果】 标题1标题2标题3标题4标题5标题6 【字体加粗】  1**目标文本** 【显示效果】 目标文本">
@@ -197,7 +197,7 @@
 <p>【显示效果】</p>
 <p><del>要删除的文本</del></p>
 <ul>
-<li>【斜体】</li>
+<li>【字体倾斜】</li>
 </ul>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">* </span>目标文本*</div></pre></td></tr></table></figure>
 <p>【显示效果】</p>
@@ -205,10 +205,10 @@
 <ul>
 <li>【文字引用】</li>
 </ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="quote">&gt; 目标文本</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 目标文本</div></pre></td></tr></table></figure>
 <p>【显示效果】</p>
 <blockquote>
-<p> 目标文本</p>
+<p>目标文本</p>
 </blockquote>
 <ul>
 <li>【无序列表】（*、-、+ 均可）</li>
@@ -239,26 +239,31 @@
 <ul>
 <li>【表格】</li>
 </ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">|  1|  2|  3</div><div class="line">|---|---|---</div><div class="line">|  a|  b|  c</div><div class="line">|  ,|  .|  、</div></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|左对齐|居中|右对齐|</div><div class="line">|:---|:---:| ---:|</div><div class="line">|  1|  2|  3|</div><div class="line">|  a|  b|  c|</div><div class="line">|  ,|  .|  、|</div></pre></td></tr></table></figure>
 <p>【显示效果】</p>
 <table>
 <thead>
 <tr>
-<th>1</th>
-<th>2</th>
-<th>3</th>
+<th style="text-align:left">左对齐</th>
+<th style="text-align:center">居中</th>
+<th style="text-align:right">右对齐</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>a</td>
-<td>b</td>
-<td>c</td>
+<td style="text-align:left">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:right">3</td>
 </tr>
 <tr>
-<td>,</td>
-<td>.</td>
-<td>、</td>
+<td style="text-align:left">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:right">c</td>
+</tr>
+<tr>
+<td style="text-align:left">,</td>
+<td style="text-align:center">.</td>
+<td style="text-align:right">、</td>
 </tr>
 </tbody>
 </table>
