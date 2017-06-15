@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Xn.U的博客">
 <meta property="og:description" content="某个蛋疼的帅比折腾了好几天浏览了无数博主发布的教程结合实际操作经历了无数次失败，积累了不少经验之后最终找到适合自己的方法搭建了属于自己的博客相关教程链接见文章末尾。 本站说明 搭建方式：本站使用Hexo+Github的方式搭建，属于开源项目，博客主题采用Litten大佬的yilia 网站用途：作为个人博客，记录在程序媛道路上的点点滴滴">
 <meta property="og:image" content="//xnu132.ml/assets/blogImg/DP-170611-00.jpg">
-<meta property="og:updated_time" content="2017-06-15T06:31:14.565Z">
+<meta property="og:updated_time" content="2017-06-15T12:08:44.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Starting point 2017.6.11">
 <meta name="twitter:description" content="某个蛋疼的帅比折腾了好几天浏览了无数博主发布的教程结合实际操作经历了无数次失败，积累了不少经验之后最终找到适合自己的方法搭建了属于自己的博客相关教程链接见文章末尾。 本站说明 搭建方式：本站使用Hexo+Github的方式搭建，属于开源项目，博客主题采用Litten大佬的yilia 网站用途：作为个人博客，记录在程序媛道路上的点点滴滴">
@@ -232,6 +232,58 @@ var _hmt = _hmt || [];
 <li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo官方文档</a></li>
 </ul>
 <font color="gray" size="2" face="微软雅黑"><em>本文到此就先告一段落、吧、、、</em></font>
+
+<script language="JavaScript">
+<!--
+var caution = false
+function setCookie(name, value, expires, path, domain, secure){
+var curCookie = name + "=" + escape(value) +
+((expires) ? "; expires=" + expires.toGMTString() : "") +
+((path) ? "; path=" + path : "") +
+((domain) ? "; domain=" + domain : "") +
+((secure) ? "; secure" : "")
+if (!caution || (name + "=" + escape(value)).length<= 4000)
+document.cookie = curCookie
+else
+if (confirm("Cookie exceeds 4KB and will be cut!"))
+document.cookie = curCookie
+}
+function getCookie(name) {
+var prefix = name + "="
+var cookieStartIndex = document.cookie.indexOf(prefix)
+if (cookieStartIndex == -1)
+return null
+var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex+ prefix.length)
+if (cookieEndIndex == -1)
+cookieEndIndex = document.cookie.length
+return unescape(document.cookie.substring(cookieStartIndex +prefix.length, cookieEndIndex))
+}
+function deleteCookie(name, path, domain) {
+if (getCookie(name)) {
+document.cookie = name + "=" +
+((path) ? "; path=" + path : "") +
+((domain) ? "; domain=" + domain : "") +
+"; expires=Thu, 01-Jan-70 00:00:01 GMT"
+}
+}
+function fixDate(date) {
+var base = new Date(0)
+var skew = base.getTime()
+if (skew > 0)
+date.setTime(date.getTime() - skew)
+}
+var now = new Date()
+fixDate(now)
+now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000)
+var visits = getCookie("counter")
+if (!visits)
+visits = 1
+else
+visits = parseInt(visits) + 1
+setCookie("counter", visits, now)
+document.write("您是第" + visits + "位访问本专题的！")
+// -->
+</script>
 
       
 
