@@ -1,7 +1,7 @@
 (function($) {
 	// When to show the scroll link
 	// higher number = scroll link appears further down the page：显示返回顶部的位置
-	var upperLimit = 1000;
+	var upperLimit = 500;
 
 	// Our scroll link element
 	var scrollElem = $('#totop');
@@ -11,7 +11,7 @@
 
 	// Show and hide the scroll to top link based on scroll position
 	scrollElem.hide();
-	$(scrollElem).scroll(function () {
+	$(window).scroll(function () {
 		var scrollTop = $(document).scrollTop();
 		if ( scrollTop > upperLimit ) {
 			$(scrollElem).stop().fadeTo(300, 1); // fade back in
