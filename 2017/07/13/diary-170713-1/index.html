@@ -174,7 +174,140 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-diary-170713-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C#小程序 - - 云中转聊天
+    </h1>
+  
+
+        
+        <a href="/2017/07/13/diary-170713-1/" class="archive-article-date">
+  	<time datetime="2017-07-13T14:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br></p>
+<h5 id="简-介"><a href="#简-介" class="headerlink" title="简 介"></a>简 介</h5><p>C#小程序第二波 - - “云中转聊天”</p>
+<p>“云中转聊天”基本功能完成于本渣前段时间自学完传智播客.NET系列基础课程以及数据库内容之后</p>
+<a id="more"></a>
+<h5 id="细-究"><a href="#细-究" class="headerlink" title="细 究"></a>细 究</h5><p>为什么弄这么个东东？ -&gt; 处于内网中的服务器无法实现内外网之间的通信</p>
+<p>为了解决这个问题，本渣的思路是这样的 -&gt;</p>
+<p>首先，要想利用Socket实现用户之间的通信，你得有一个所有连接到互联网上的用户都能访问得到的（包括不同内网用户）、挂到外网上的服务器进行消息中转。可是本渣并没有那样的挂到外网上的服务器，虽然很想将自己的 渣本 作为服务器来实现这么个功能，苦于本渣这个校园网用户深处学校的内网中。并且本渣纯粹是以学习为目的and考虑到本渣目前的经济状况，本渣不想and不可能将自己的生活费砸到云主机上。。</p>
+<p>基于以上的前提，本渣想了很多种方法。比如到网上找免费的云主机试用，花了很长时间和精力，最终只是得出一个结论 - - 免费的午餐很难吃···</p>
+<p>后来，本渣到阿里云上逛了逛，也不知道是在哪个版块看到了一个超廉价的共享虚拟主机普惠版，貌似是本渣申请.win域名送了一年的免费试用期限。其中包含200M的网页空间和20M的数据库空间，拿来学习和测试足以。</p>
+<p>有了云虚拟主机的本渣并没有立即将其用于云中转聊天上，原因 - - 拖延症 =_=</p>
+<p>云虚拟主机被本渣搁置了一段时间之后，终于在一个闲得无聊的下午被某渣用来开始自己的计划。</p>
+<p>本渣的计划并不是使用Socket来完成这个任务，而是使用了最近才刚学完的数据库。</p>
+<p>“云中转聊天”原本叫“云数据库中转聊天”，因为其原理就是利用云数据库的增删查改来实现消息的发送和读取功能。</p>
+<p>该程序的窗体主要分为三个：<br>1、登录界面<br>2、好友列表<br>3、聊天窗口</p>
+<p>外观上较为简陋，只为实现基本的功能，并且安全性较低，只做学习和测试使用。</p>
+<p>相关截图放上：</p>
+<p><img src="/assets/blogImg/DP-170713-0.jpg" alt=""></p>
+<p><img src="/assets/blogImg/DP-170713-1.jpg" alt=""></p>
+<p><img src="/assets/blogImg/DP-170713-2.jpg" alt=""></p>
+<p><a href="http://software.xnu132.win/云中转聊天程序/云中转聊天程序1.0.1.9.rar" target="_blank" rel="external"><font style="color:green;">点击此处下载程序</font></a></p>
+<p><em>end</em></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2017-7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C#小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/12/diary-170712-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C#小程序 - - ColorCreator</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#简-介"><span class="toc-number">1.</span> <span class="toc-text">简 介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#细-究"><span class="toc-number">2.</span> <span class="toc-text">细 究</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+
+  
+
+  
+  <section class="youyan" id="post">
+  <div id="uyan_frame"></div>
+  <script src="http://v2.uyan.cc/code/uyan.js?uid=2139194"></script>
+</section>
+
+  
+
+  
+
+  
+
+
           </div>
         </div>
       </div>
