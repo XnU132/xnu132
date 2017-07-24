@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="//xnu132.win">
   <title>C#创建非矩形窗体 | Xn.U的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简 介 C#根据含透明色的图片创建非矩形窗体  鼠标左键控制该窗体的移动   本人原创，转载请注明出处">
+  <meta name="description" content="简 介1、 C#根据含透明色的图片创建非矩形窗体 2、 鼠标左键控制该窗体的移动 本人原创，转载请注明出处">
 <meta name="keywords" content="教程,2017-7,C#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#创建非矩形窗体">
 <meta property="og:url" content="//xnu132.win/2017/07/24/diary-170724-1/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
-<meta property="og:description" content="简 介 C#根据含透明色的图片创建非矩形窗体  鼠标左键控制该窗体的移动   本人原创，转载请注明出处">
-<meta property="og:updated_time" content="2017-07-24T05:19:23.722Z">
+<meta property="og:description" content="简 介1、 C#根据含透明色的图片创建非矩形窗体 2、 鼠标左键控制该窗体的移动 本人原创，转载请注明出处">
+<meta property="og:updated_time" content="2017-07-24T05:20:21.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#创建非矩形窗体">
-<meta name="twitter:description" content="简 介 C#根据含透明色的图片创建非矩形窗体  鼠标左键控制该窗体的移动   本人原创，转载请注明出处">
+<meta name="twitter:description" content="简 介1、 C#根据含透明色的图片创建非矩形窗体 2、 鼠标左键控制该窗体的移动 本人原创，转载请注明出处">
   
     <link rel="alternative" href="/atom.xml" title="Xn.U的博客" type="application/atom+xml">
   
@@ -190,33 +190,21 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="简-介"><a href="#简-介" class="headerlink" title="简 介"></a>简 介</h5><ol>
-<li><p>C#根据含透明色的图片创建非矩形窗体</p>
-</li>
-<li><p>鼠标左键控制该窗体的移动</p>
-</li>
-</ol>
+        <h5 id="简-介"><a href="#简-介" class="headerlink" title="简 介"></a>简 介</h5><p>1、 C#根据含透明色的图片创建非矩形窗体</p>
+<p>2、 鼠标左键控制该窗体的移动</p>
 <p><strong>本人原创，转载请注明出处</strong></p>
 <a id="more"></a>
-<h5 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h5><ol>
-<li><p>在新建立的窗体中拖入PictureBox控件</p>
-</li>
-<li><p>设置好PictureBox的图片来源</p>
-</li>
-<li><p>其属性SizeMode设置为StretchImage（拉伸）</p>
-</li>
-<li><p>设置窗体背景色透明，在窗体加载事件中添加如下代码：</p>
-</li>
-</ol>
+<h5 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h5><p>1、 在新建立的窗体中拖入PictureBox控件</p>
+<p>2、 设置好PictureBox的图片来源</p>
+<p>3、 其属性SizeMode设置为StretchImage（拉伸）</p>
+<p>4、 设置窗体背景色透明，在窗体加载事件中添加如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">this.TransparencyKey = Color.White;             //设置当前窗体的默认透明色  </div><div class="line">this.BackColor = this.TransparencyKey;          //设置当前窗体的背景色为透明  </div><div class="line">this.FormBorderStyle = FormBorderStyle.None;    //设置窗体无边框</div></pre></td></tr></table></figure>
-<ol>
-<li>让鼠标控制窗体的移动（详细代码见下方）<ul>
+<p>5、 让鼠标控制窗体的移动（详细代码见下方）</p>
+<ul>
 <li>首先创建一个Point对象downPoint（用于记录鼠标移动前的坐标）</li>
 <li>然后在PictureBox的MouseDown事件中将鼠标移动前的坐标e.Location赋值给downPoint</li>
 <li>最后，在pictureBox的MouseMove事件中先判断当前按键是否为鼠标左键，若是，则通过鼠标移动前的坐标和移动后的坐标生成新的坐标赋值给当前的窗体</li>
 </ul>
-</li>
-</ol>
 <h5 id="代-码"><a href="#代-码" class="headerlink" title="代 码"></a>代 码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using System.Collections.Generic;</div><div class="line">using System.ComponentModel;</div><div class="line">using System.Data;</div><div class="line">using System.Drawing;</div><div class="line">using System.Linq;</div><div class="line">using System.Runtime.InteropServices;</div><div class="line">using System.Text;</div><div class="line">using System.Threading.Tasks;</div><div class="line">using System.Windows.Forms;</div><div class="line"></div><div class="line">namespace MainFrm</div><div class="line">&#123;</div><div class="line">    public partial class Form1 : Form</div><div class="line">    &#123;</div><div class="line">        public Form1()</div><div class="line">        &#123;</div><div class="line">            InitializeComponent();</div><div class="line">        &#125;</div><div class="line">        private void Form1_Load(object sender, EventArgs e)</div><div class="line">        &#123;</div><div class="line">            this.TransparencyKey = Color.White;             //设置当前窗体的默认透明色  </div><div class="line">            this.BackColor = this.TransparencyKey;          //设置当前窗体的背景色为透明  </div><div class="line">            this.FormBorderStyle = FormBorderStyle.None;    //设置窗体无边框</div><div class="line">        &#125;</div><div class="line">        Point downPoint;   //用于记录鼠标移动前的位置</div><div class="line">        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)</div><div class="line">        &#123;//将鼠标移动前的位置赋值给downPoint</div><div class="line">            downPoint = e.Location;</div><div class="line">        &#125;</div><div class="line">        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)</div><div class="line">        &#123;</div><div class="line">            if (e.Button==MouseButtons.Left)</div><div class="line">            &#123;//通过鼠标的移动前和移动后的坐标生成新的坐标</div><div class="line">                Location = new Point(Location.X + e.X - downPoint.X, Location.Y + e.Y - downPoint.Y);   </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>（本页地址：<a href="http://xnu132.win/2017/07/13/diary-170713-1/" target="_blank" rel="external">http://xnu132.win/2017/07/13/diary-170713-1/</a> ）</p>
 
