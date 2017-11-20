@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="//xnu132.win">
   <title>C#小程序 - - 云中转聊天 | Xn.U的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简 介C#小程序第二波 - - “云中转聊天” “云中转聊天”基本功能完成于本渣前段时间自学完传智播客.NET系列基础课程以及数据库内容之后">
+  <meta name="description" content="简 介C#小程序第二波 - - “云中转聊天”（EX-Chat） 基本功能完成于前些日子，更多功能还在探索中">
 <meta name="keywords" content="2017-7,C#小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#小程序 - - 云中转聊天">
 <meta property="og:url" content="//xnu132.win/2017/07/13/diary-170713-1/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
-<meta property="og:description" content="简 介C#小程序第二波 - - “云中转聊天” “云中转聊天”基本功能完成于本渣前段时间自学完传智播客.NET系列基础课程以及数据库内容之后">
+<meta property="og:description" content="简 介C#小程序第二波 - - “云中转聊天”（EX-Chat） 基本功能完成于前些日子，更多功能还在探索中">
 <meta property="og:image" content="//xnu132.win/assets/blogImg/DP-170713-0.jpg">
 <meta property="og:image" content="//xnu132.win/assets/blogImg/DP-170713-1.jpg">
 <meta property="og:image" content="//xnu132.win/assets/blogImg/DP-170713-2.jpg">
-<meta property="og:updated_time" content="2017-11-03T08:07:28.039Z">
+<meta property="og:updated_time" content="2017-11-20T15:56:33.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#小程序 - - 云中转聊天">
-<meta name="twitter:description" content="简 介C#小程序第二波 - - “云中转聊天” “云中转聊天”基本功能完成于本渣前段时间自学完传智播客.NET系列基础课程以及数据库内容之后">
+<meta name="twitter:description" content="简 介C#小程序第二波 - - “云中转聊天”（EX-Chat） 基本功能完成于前些日子，更多功能还在探索中">
 <meta name="twitter:image" content="//xnu132.win/assets/blogImg/DP-170713-0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Xn.U的博客" type="application/atom+xml">
@@ -207,26 +207,27 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="简-介"><a href="#简-介" class="headerlink" title="简 介"></a>简 介</h5><p>C#小程序第二波 - - “云中转聊天”</p>
-<p>“云中转聊天”基本功能完成于本渣前段时间自学完传智播客.NET系列基础课程以及数据库内容之后</p>
+        <h5 id="简-介"><a href="#简-介" class="headerlink" title="简 介"></a>简 介</h5><p>C#小程序第二波 - - “云中转聊天”（EX-Chat）</p>
+<p>基本功能完成于前些日子，更多功能还在探索中</p>
 <a id="more"></a>
-<h5 id="细-究"><a href="#细-究" class="headerlink" title="细 究"></a>细 究</h5><p>为什么弄这么个东东？ -&gt; 处于内网中的服务器无法实现内外网之间的通信</p>
-<p>为了解决这个问题，本渣的思路是这样的 -&gt;</p>
-<p>首先，要想利用Socket实现用户之间的通信，你得有一个所有连接到互联网上的用户都能访问得到的（包括不同内网用户）、挂到外网上的服务器进行消息中转。可是本渣并没有那样的挂到外网上的服务器，虽然很想将自己的 渣本 作为服务器来实现这么个功能，苦于本渣这个校园网用户深处学校的内网中。并且本渣纯粹是以学习为目的and考虑到本渣目前的经济状况，本渣不想and不可能将自己的生活费砸到云主机上。。</p>
-<p>基于以上的前提，本渣想了很多种方法。比如到网上找免费的云主机试用，花了很长时间和精力，最终只是得出一个结论 - - 免费的午餐很难吃···</p>
-<p>后来，本渣到阿里云主页上逛了逛，也不知道是在哪个版块看到了一个超廉价的共享虚拟主机普惠版，貌似本渣申请.win域名送了一年的免费试用期限。其中包含200M的网页空间和20M的数据库空间，拿来学习和测试足以。</p>
-<p>有了云虚拟主机的本渣并没有立即将其用于云中转聊天上，原因 - - 拖延症 =_=</p>
-<p>云虚拟主机被本渣搁置了一段时间之后，终于在一个闲得无聊的下午动工了。</p>
-<p>本渣的计划并不是使用Socket来完成这个任务，而是最近才刚学完的数据库。</p>
-<p>“云中转聊天”原本叫“云数据库中转聊天”，因为其原理就是利用云数据库的增删查改来实现消息的发送和读取功能。</p>
-<p>该程序的窗体主要分为三个：<br>1、登录界面<br>2、好友列表<br>3、聊天窗口</p>
-<p>外观上较为简陋，只为实现基本的功能，并且安全性较低，只做学习和测试使用。</p>
+<h5 id="简-述"><a href="#简-述" class="headerlink" title="简 述"></a>简 述</h5><p>首先，为什么想做这么个项目呢？</p>
+<p>-&gt; 在学习Socket的时候本人深有体会，Socket服务器必须挂到外网才能实现处于不同内网中的客户端之间的通信</p>
+<p>“那么将服务器挂到外网不就好了吗？”，我想这应该是最好的解决方案，其次就是NAT穿透了（此类软件如“花生壳”）</p>
+<p>这里我并不打算采用以上两种方案（原因多个方面，不细说）</p>
+<p>-&gt; 为了解决以上问题，我的思路是这样的</p>
+<p>前段时间上阿里云申（ceng）请（xiao）域（pian）名（yi），顺便加价买了个共享虚拟主机普惠版。</p>
+<p>由于廉价的一匹，得来的配置是这样的：200M的网页空间和20M的数据库空间，不过就目前来说，本人拿来学习和测试足以。</p>
+<p>云虚拟主机被某帅比搁置了一段时间之后，终于在一个毫无特殊可言的某天下午开始了它的使命</p>
+<p>由于是基于云数据库做数据中转的聊天程序，于是项目名姑且取作“云中转聊天”（已改为EX-Chat）</p>
+<p>该项目初期主要包含三个窗体：<br>1、登录界面<br>2、好友列表<br>3、聊天窗口</p>
+<p>外观较为简陋，暂时只实现了基本的通信功能，并且安全性较低，只作学习和测试用</p>
+<p>更多功能留作以后探索，这里就暂时不放出来了。。</p>
 <p>相关截图放上：</p>
 <p><img src="/assets/blogImg/DP-170713-0.jpg" alt=""></p>
 <p><img src="/assets/blogImg/DP-170713-1.jpg" alt=""></p>
 <p><img src="/assets/blogImg/DP-170713-2.jpg" alt=""></p>
-<p><a href="http://xnu132.win/404" target="_blank" rel="external"><font style="color:green;">点击此处下载程序</font></a></p>
-<p><em>end</em></p>
+<p><a href="http://xnu132.win/404" target="_blank" rel="external"><font style="color:green;">点击此处下载程序（暂时已关闭）</font></a></p>
+<p>*– end  最后更新于：2017.11.20 end –</p>
 
       
 
@@ -301,7 +302,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#简-介"><span class="toc-number">1.</span> <span class="toc-text">简 介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#细-究"><span class="toc-number">2.</span> <span class="toc-text">细 究</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#简-介"><span class="toc-number">1.</span> <span class="toc-text">简 介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#简-述"><span class="toc-number">2.</span> <span class="toc-text">简 述</span></a></li></ol>
                     </div>
                 </span>
             </div>
