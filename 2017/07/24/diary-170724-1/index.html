@@ -15,7 +15,7 @@
 <meta property="og:url" content="//xnu132.win/2017/07/24/diary-170724-1/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
 <meta property="og:description" content="简 介1、 C#根据含透明色的图片创建非矩形窗体 2、 鼠标左键控制该窗体的移动 （转载请注明出处）">
-<meta property="og:updated_time" content="2017-11-24T15:26:02.602Z">
+<meta property="og:updated_time" content="2017-12-07T00:49:53.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#创建非矩形窗体">
 <meta name="twitter:description" content="简 介1、 C#根据含透明色的图片创建非矩形窗体 2、 鼠标左键控制该窗体的移动 （转载请注明出处）">
@@ -212,7 +212,7 @@ var _hmt = _hmt || [];
 <p>3、 其属性SizeMode设置为StretchImage（拉伸）</p>
 <p>4、 设置窗体背景色透明，在窗体加载事件中添加如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">this.TransparencyKey = Color.White;             //设置当前窗体的默认透明色  </div><div class="line">this.BackColor = this.TransparencyKey;          //设置当前窗体的背景色为透明  </div><div class="line">this.FormBorderStyle = FormBorderStyle.None;    //设置窗体无边框</div></pre></td></tr></table></figure>
-<p>5、 让鼠标控制窗体的移动（详细代码见下方）</p>
+<p>5、 让鼠标控制窗体的移动（详细代码见后文）</p>
 <ul>
 <li>首先创建一个Point对象downPoint（用于记录鼠标移动前的坐标）</li>
 <li>然后在PictureBox的MouseDown事件中将鼠标移动前的坐标e.Location赋值给downPoint</li>
