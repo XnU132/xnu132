@@ -6,23 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//xnu132.win">
-  <title>【C#小程序】 云中转聊天 | Xn.U的博客</title>
+  <title>C#创建非矩形窗体 | Xn.U的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概 述C#小程序第二波 - - “云中转聊天”（EX-Chat） 基本功能完成于前些日子，更多功能还在探索中">
-<meta name="keywords" content="2017-7,C#小程序">
+  <meta name="description" content="简 介示例： 1、 C#根据含透明色的图片创建非矩形窗体 2、 鼠标左键控制该窗体的移动 （转载请注明出处）">
+<meta name="keywords" content="教程,2017-7,C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【C#小程序】 云中转聊天">
-<meta property="og:url" content="//xnu132.win/2017/07/13/diary-170713-1/index.html">
+<meta property="og:title" content="C#创建非矩形窗体">
+<meta property="og:url" content="//xnu132.win/2017/07/24/diary-170724-01/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
-<meta property="og:description" content="概 述C#小程序第二波 - - “云中转聊天”（EX-Chat） 基本功能完成于前些日子，更多功能还在探索中">
-<meta property="og:image" content="//xnu132.win/assets/blogImg/DP-170713-0.jpg">
-<meta property="og:image" content="//xnu132.win/assets/blogImg/DP-170713-1.jpg">
-<meta property="og:image" content="//xnu132.win/assets/blogImg/DP-170713-2.jpg">
-<meta property="og:updated_time" content="2017-12-07T01:45:23.156Z">
+<meta property="og:description" content="简 介示例： 1、 C#根据含透明色的图片创建非矩形窗体 2、 鼠标左键控制该窗体的移动 （转载请注明出处）">
+<meta property="og:image" content="//xnu132.win/assets/blogImg/DP-170724-0.png">
+<meta property="og:updated_time" content="2017-12-07T01:41:01.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【C#小程序】 云中转聊天">
-<meta name="twitter:description" content="概 述C#小程序第二波 - - “云中转聊天”（EX-Chat） 基本功能完成于前些日子，更多功能还在探索中">
-<meta name="twitter:image" content="//xnu132.win/assets/blogImg/DP-170713-0.jpg">
+<meta name="twitter:title" content="C#创建非矩形窗体">
+<meta name="twitter:description" content="简 介示例： 1、 C#根据含透明色的图片创建非矩形窗体 2、 鼠标左键控制该窗体的移动 （转载请注明出处）">
+<meta name="twitter:image" content="//xnu132.win/assets/blogImg/DP-170724-0.png">
   
     <link rel="alternative" href="/atom.xml" title="Xn.U的博客" type="application/atom+xml">
   
@@ -187,54 +185,44 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-diary-170713-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-diary-170724-01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【C#小程序】 云中转聊天
+      C#创建非矩形窗体
     </h1>
   
 
         
-        <a href="/2017/07/13/diary-170713-1/" class="archive-article-date">
-  	<time datetime="2017-07-13T14:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
+        <a href="/2017/07/24/diary-170724-01/" class="archive-article-date">
+  	<time datetime="2017-07-24T04:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="概-述"><a href="#概-述" class="headerlink" title="概 述"></a>概 述</h5><p>C#小程序第二波 - - “云中转聊天”（EX-Chat）</p>
-<p>基本功能完成于前些日子，更多功能还在探索中</p>
+        <h5 id="简-介"><a href="#简-介" class="headerlink" title="简 介"></a>简 介</h5><p><font color="gray" size="2" face="微软雅黑">示例：</font><br><img src="/assets/blogImg/DP-170724-0.png" alt=""></p>
+<p>1、 C#根据含透明色的图片创建非矩形窗体</p>
+<p>2、 鼠标左键控制该窗体的移动</p>
+<p><font style="color:green">（转载请注明出处）</font><br></p>
 <a id="more"></a>
-<h5 id="缘-由"><a href="#缘-由" class="headerlink" title="缘 由"></a>缘 由</h5><p><strong>“为什么想做这么个项目呢？”</strong></p>
-<p>本人在学习.NET的时候对使用Socket编程实现通信遇到的一些问题深有感触。当时懂的东西特少，以为只要在我的电脑连接网络开启Socket服务端，其他能连上网的电脑上的客户端就能连接得到。直到后来与同学在两个不同内网中测试自己写出来的程序的可用性的时候发现根本连不上，当时我还以为是自己将代码写错了才会导致这种情况，后来证明是当时的自己图样图森破。原来，Socket服务端要想让所有客户端都能连接到，必须得将其运行在连接了外网的服务器（或是电脑）上，或者还有一种方案就是对自己的电脑进行NAT穿透（也就是所谓的内网穿透吧）。苦于本人对NAT并不是特别了解，虽然知道有这么个方案，由于也没有很多空闲时间去学，于是就一直没能将其实现。没有连接到外网的电脑也不会用NAT怎么办呢？那么接下来这个项目就是介绍一种无服务器的简单通信方案。</p>
-<h5 id="思-路"><a href="#思-路" class="headerlink" title="思 路"></a>思 路</h5><p>为了解决以上所说的那些问题，我的思路大致是这样的：</p>
-<p><strong>首先，准备工作</strong></p>
-<p>由于本人想的这个方案由于比较简单，所以要求也比较低，总的来说一个能用的云数据库则足以（云数据库可以上服务供应商官网购买，如果只是感兴趣想学学，你也可以上论坛找找看有没有免费试用的）</p>
-<p><strong>有了云数据库之后</strong>，我们先在云数据库上面建立一张初始表用于存储用户的数据，表中的相关字段根据自己的需要自行设置，以本人项目为例，我创建的用户数据表主要包含了七个字段：用户账号、用户名、用户密码、注册时间、在线状态、最后登录时间、用户类型。</p>
-<p><strong>接下来</strong> 就是使用VS进行用户界面的搭建了，主要包含登录、注册、好友列表、聊天界面四个窗体。因为跟本文主题不相关，这里不进行细说，每个人都有自己的想法，只要能实现基本的功能即可。</p>
-<p>用户界面搭建好了之后，最关键的就是注册和聊天功能了。</p>
-<p><strong>注册时</strong>，用户填写相关信息，点击“注册”，客户端随机生成一个长度为5的数字作为账号，并将其与用户填写的信息一起写入到用户数据表中，同时建立一张专门用于存储该用户聊天记录的表，这也就完成了聊天功能（仅文字信息）的核心部分，最后就是如何实现客户端之间的通信了。</p>
-<p>那么如何实现通信呢？既然有说到是数据库作数据中转，那么学过数据库的同学应该就能猜到是个什么想法了吧。</p>
-<p>其实很简单，我利用的只不过就是数据库的增删查改功能。</p>
-<p>这里简单的叙述一下消息的发送过程：本地用户在给对方发消息的时候，本地客户端在对方的聊天记录表上插入一条记录，而对方客户端在接收这条消息时则通过Timer控件定时检查对应账号的聊天记录表，如果有新的消息，则将其打印出来。反过来，对方给本地用户发消息也是同一个道理。</p>
-<p>其他的比如清空消息记录之类功能，原理都大同小异，只要你会SQL脚本，相信这些实现起来都不难。</p>
-<h5 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h5><p>前阵子上阿里云申（ceng）请（xiao）域（pian）名（yi）的时候，顺便加价买了个共享虚拟主机普惠版。</p>
-<p>由于廉价的一匹，得来的配置是这样的：200M的网页空间和20M的数据库空间，不过就目前来说，本人拿来学习和测试足以。</p>
-<p>云虚拟主机被某帅比搁置了一段时间之后，终于在毫无特殊可言的某天下午迎来了它的使命。</p>
-<p>由于是基于云数据库作数据中转的聊天程序，于是本人将项目名暂且取作“云中转聊天”（经过几个版本的迭代更新之后已更改为EX-Chat）</p>
-<p>根据以上所述思路操作，经过多次修改，花费了好几天时间之后总算是写出了成品。</p>
-<p>外观较为简陋，暂时只实现了基本的通信功能，并且安全性较低，只作学习和测试用。</p>
-<p>下面放上几个主要窗体的相关截图用以参考，更多功能留作以后探索，更新日志见<a href="http://software.xnu132.win/%E4%BA%91%E4%B8%AD%E8%BD%AC%E8%81%8A%E5%A4%A9%E7%A8%8B%E5%BA%8F/pages/02/" target="_blank" rel="external">此处</a>，这里暂不详述</p>
-<p><img src="/assets/blogImg/DP-170713-0.jpg" alt=""></p>
-<p><img src="/assets/blogImg/DP-170713-1.jpg" alt=""></p>
-<p><img src="/assets/blogImg/DP-170713-2.jpg" alt=""></p>
-<p><a href="http://xnu132.win/404" target="_blank" rel="external"><font style="color:green;">点击此处下载程序（出于一些个人原因，下载接口暂时已关闭）</font></a></p>
-<font color="gray" size="2" face="微软雅黑"><em>– end  最后更新于：2017.11.20 end –</em></font>
+<h5 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h5><p>1、 在新建立的窗体中拖入PictureBox控件</p>
+<p>2、 设置好PictureBox的图片来源</p>
+<p>3、 其属性SizeMode设置为StretchImage（拉伸）</p>
+<p>4、 设置窗体背景色透明，在窗体加载事件中添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">this.TransparencyKey = Color.White;             //设置当前窗体的默认透明色  </div><div class="line">this.BackColor = this.TransparencyKey;          //设置当前窗体的背景色为透明  </div><div class="line">this.FormBorderStyle = FormBorderStyle.None;    //设置窗体无边框</div></pre></td></tr></table></figure>
+<p>5、 让鼠标控制窗体的移动（详细代码见后文）</p>
+<ul>
+<li>首先创建一个Point对象downPoint（用于记录鼠标移动前的坐标）</li>
+<li>然后在PictureBox的MouseDown事件中将鼠标移动前的坐标e.Location赋值给downPoint</li>
+<li>最后，在pictureBox的MouseMove事件中先判断当前按键是否为鼠标左键，若是，则通过鼠标移动前的坐标和移动后的坐标生成新的坐标赋值给当前的窗体</li>
+</ul>
+<h5 id="代-码"><a href="#代-码" class="headerlink" title="代 码"></a>代 码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using System.Collections.Generic;</div><div class="line">using System.ComponentModel;</div><div class="line">using System.Data;</div><div class="line">using System.Drawing;</div><div class="line">using System.Linq;</div><div class="line">using System.Runtime.InteropServices;</div><div class="line">using System.Text;</div><div class="line">using System.Threading.Tasks;</div><div class="line">using System.Windows.Forms;</div><div class="line"></div><div class="line">namespace MainFrm</div><div class="line">&#123;</div><div class="line">    public partial class Form1 : Form</div><div class="line">    &#123;</div><div class="line">        public Form1()</div><div class="line">        &#123;</div><div class="line">            InitializeComponent();</div><div class="line">        &#125;</div><div class="line">        private void Form1_Load(object sender, EventArgs e)</div><div class="line">        &#123;</div><div class="line">            this.TransparencyKey = Color.White;             //设置当前窗体的默认透明色  </div><div class="line">            this.BackColor = this.TransparencyKey;          //设置当前窗体的背景色为透明  </div><div class="line">            this.FormBorderStyle = FormBorderStyle.None;    //设置窗体无边框</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Point downPoint;   //用于记录鼠标移动前的位置</div><div class="line"></div><div class="line">        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)</div><div class="line">        &#123;//将鼠标移动前的位置赋值给downPoint</div><div class="line">            downPoint = e.Location;</div><div class="line">        &#125;</div><div class="line">        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)</div><div class="line">        &#123;</div><div class="line">            if (e.Button==MouseButtons.Left)</div><div class="line">            &#123;//通过鼠标的移动前和移动后的坐标生成新的坐标</div><div class="line">                Location = new Point(Location.X + e.X - downPoint.X, Location.Y + e.Y - downPoint.Y);   </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>（本页地址：<a href="http://xnu132.win/2017/07/24/diary-170724-1/" target="_blank" rel="external">http://xnu132.win/2017/07/24/diary-170724-1/</a> ） </em></p>
 
       
 
@@ -248,11 +236,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2017-7</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C#小程序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
         		</li>
       		
 		</ul>
@@ -271,18 +263,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/07/24/diary-170724-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/25/diary-170725-01/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          C#创建非矩形窗体
+          【日常随笔】 17-07-25
         
       </div>
     </a>
   
   
-    <a href="/2017/07/12/diary-170712-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【C#小程序】 ColorCreator</div>
+    <a href="/2017/07/13/diary-170713-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【C#小程序】 云中转聊天</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -309,7 +301,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#概-述"><span class="toc-number">1.</span> <span class="toc-text">概 述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缘-由"><span class="toc-number">2.</span> <span class="toc-text">缘 由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#思-路"><span class="toc-number">3.</span> <span class="toc-text">思 路</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#具体实现"><span class="toc-number">4.</span> <span class="toc-text">具体实现</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#简-介"><span class="toc-number">1.</span> <span class="toc-text">简 介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#具体操作"><span class="toc-number">2.</span> <span class="toc-text">具体操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#代-码"><span class="toc-number">3.</span> <span class="toc-text">代 码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -513,6 +505,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">2018-2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C#学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
