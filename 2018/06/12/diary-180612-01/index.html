@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//xnu132.win">
-  <title>Archives: 2017/6 | Xn.U的博客</title>
+  <title>数据契约（DataContract） | Xn.U的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大四狗一枚，自学编程">
-<meta name="keywords" content="C#,javascript,html,mssql,css,unity,photoshop">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xn.U的博客">
-<meta property="og:url" content="//xnu132.win/archives/2017/06/index.html">
+  <meta name="description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125; 只有声明为DataContract的类型的对象可以被传送，且只有成员属">
+<meta name="keywords" content="2018-6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据契约（DataContract）">
+<meta property="og:url" content="//xnu132.win/2018/06/12/diary-180612-01/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
-<meta property="og:description" content="大四狗一枚，自学编程">
+<meta property="og:description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125; 只有声明为DataContract的类型的对象可以被传送，且只有成员属">
+<meta property="og:updated_time" content="2018-06-12T03:40:21.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xn.U的博客">
-<meta name="twitter:description" content="大四狗一枚，自学编程">
+<meta name="twitter:title" content="数据契约（DataContract）">
+<meta name="twitter:description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125; 只有声明为DataContract的类型的对象可以被传送，且只有成员属">
   
     <link rel="alternative" href="/atom.xml" title="Xn.U的博客" type="application/atom+xml">
   
@@ -182,256 +183,143 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-diary-180612-01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据契约（DataContract）
+    </h1>
+  
+
+        
+        <a href="/2018/06/12/diary-180612-01/" class="archive-article-date">
+  	<time datetime="2018-06-12T03:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。</p>
+<p>一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[DataContract]</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//….</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>只有声明为DataContract的类型的对象可以被传送，且只有成员属性会被传递，成员方法不会被传递。WCF对声明为DataContract的类型提供更加细节的控制，可以把一个成员排除在序列化范围以外，也就是说，客户端程序不会获得被排除在外的成员的任何信息，包括定义和数据。默认情况下，所有的成员属性都被排除在外，因此需要把每一个要传送的成员声明为DataMember，如下所示。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">[DataContract]</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span></span></div><div class="line">&#123;</div><div class="line">    [DataMember]</div><div class="line">    <span class="keyword">public</span> <span class="built_in">string</span> UserName</div><div class="line">    &#123;</div><div class="line">        get;</div><div class="line">        <span class="built_in">set</span>;</div><div class="line">    &#125;</div><div class="line">    [DataMember]</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Age</div><div class="line">    &#123;</div><div class="line">        get;</div><div class="line">        <span class="built_in">set</span>;</div><div class="line">    &#125;</div><div class="line">    [DataMember]</div><div class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Location</div><div class="line">    &#123;</div><div class="line">        get;</div><div class="line">        <span class="built_in">set</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Zodiac</div><div class="line">    &#123;</div><div class="line">        get;</div><div class="line">        <span class="built_in">set</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面这段代码把UserInfo类声明为DataContract，将UserName、Age、Location这3个属性声明为DataMember（数据成员）。Zodiac成员没有被声明为DataMember，因此在交换数据时，不会传输Zodiac的任何信息。</p>
+<p>DataContract也支持Name/Namespace属性，如同ServiceContract，Name和Namespace可以自定义名称和命名空间，客户端将使用自定义的名称和命名空间对DataContract类型进行访问。</p>
+<p>声明为DataMember的成员也可以自定义客户端可见的名称，例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[DataMember(Name=<span class="string">"Name"</span>)]</div><div class="line"><span class="keyword">public</span> <span class="built_in">string</span> UserName</div><div class="line">&#123;</div><div class="line">    get;</div><div class="line">    <span class="built_in">set</span>;</div><div class="line">&#125;</div><div class="line">[DataMember(Name=<span class="string">"Age"</span>)]</div><div class="line"><span class="keyword">public</span> <span class="keyword">int</span> UserAge</div><div class="line">&#123;</div><div class="line">    get;</div><div class="line">    <span class="built_in">set</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>除了Name和Namespace以外，DataMember还有以下参数，它们的含义分别如下。</p>
+<p>（1）IsRequired：值为true时，要求序列化引擎检查对象是否存在该值；若无，则会有异常抛出。</p>
+<p>（2）Order：bool类型值，值为true时，序列化和反序列化过程将会按成员定义的顺序进行，这对依赖于成员位置的反序列化过程无比重要。</p>
+<p>（3）EmitDefaultvalue：为成员属性设置一个默认值。</p>
+<p>一般情况下，将类型声明为DataContract就可以满足传送的需求了，不过特殊情况是难以避免的，这时就需要对要传送的SOAP消息进行更加精确的控制，MessageContract可以满足这种需求。</p>
+<p>把一个类型声明为MessageContract，意味着它可以被序列化为SOAP消息，可以声明类型的成员为SOAP消息的各个部分，如Header、Body等，如下所示。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[MessageContract]</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserMessage</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="built_in">string</span> user = String.Empty;</div><div class="line">    <span class="keyword">private</span> <span class="built_in">string</span> authKey = String.Empty;</div><div class="line">    [MessageBodyMember(</div><div class="line">      Name = <span class="string">"UserName"</span>,</div><div class="line">      Namespace = <span class="string">"http://www.wcf.com"</span>)]</div><div class="line">    <span class="keyword">public</span> <span class="built_in">string</span> User</div><div class="line">    &#123;</div><div class="line">        get &#123; <span class="keyword">return</span> user; &#125;</div><div class="line">        <span class="built_in">set</span> &#123; user = value; &#125;</div><div class="line">    &#125;</div><div class="line">    [MessageHeader(</div><div class="line">      Name = <span class="string">"AuthKey"</span>,</div><div class="line">      Namespace = <span class="string">"http://www.wcf.com"</span>,</div><div class="line">      MustUnderstand = <span class="literal">true</span></div><div class="line">    )]</div><div class="line">    <span class="keyword">public</span> <span class="built_in">string</span> AuthKey</div><div class="line">    &#123;</div><div class="line">        get &#123; <span class="keyword">return</span> authKey; &#125;</div><div class="line">        <span class="built_in">set</span> &#123; <span class="keyword">this</span>.authKey = value; &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>User成员被声明为MessageBody（消息体）的一个成员，AuthKey被声明为消息头（MessageHeader）的一个成员。这个类将可以生成如下的SOAP消息。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">s:Envelope</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">s:Header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a:Action</span> <span class="attr">s:mustUnderstand</span>=<span class="string">"1"</span>&gt;</span>http://UserMessage/Action<span class="tag">&lt;/<span class="name">a:Action</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h:AuthKey</span> <span class="attr">s:mustUnderstand</span>=<span class="string">"1"</span> <span class="attr">xmlns:h</span>=<span class="string">"http://www.wcf.com"</span>&gt;</span>xxxx<span class="tag">&lt;/<span class="name">h:AuthKey</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">s:Header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">s:Body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">UserMessage</span> <span class="attr">xmlns</span>=<span class="string">"Microsoft.WCF.Documentation"</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">User</span> <span class="attr">xmlns</span>=<span class="string">"http://www.wcf.com"</span>&gt;</span>abcd<span class="tag">&lt;/<span class="name">User</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">UserMessage</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">s:Body</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;/<span class="name">s:Envelope</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>MessageHeader中，MustUnderstand参数表示读取该头的程序必须能够识别头的内容，否则不能继续处理。Name/Namespace的作用与前面的元素相同。另有Relay参数，若为true，头的内容被接收到以后会在响应消息中回发给消息发送端。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/24/diary-170624-01/" class="archive-article-date">
-  	<time datetime="2017-06-24T04:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/24/diary-170624-01/">【音乐分享】 アイロニ</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2017-6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2018-6</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/12/diary-170612-02/" class="archive-article-date">
-  	<time datetime="2017-06-12T09:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/29/diary-180509-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">几个值得收藏的.NET开源项目</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/12/diary-170612-02/">【音乐分享】 一笑倾城</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2017-6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录？想要的话就去找吧，我把一切都放在那里了！
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/12/diary-170612-01/" class="archive-article-date">
-  	<time datetime="2017-06-12T02:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/12/diary-170612-01/">MarkDown的使用教程</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2017-6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/11/diary-170611-02/" class="archive-article-date">
-  	<time datetime="2017-06-11T14:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/11/diary-170611-02/">沉迷二次元无法自拔😆</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2017-6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二次元</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/11/diary-170611-01/" class="archive-article-date">
-  	<time datetime="2017-06-11T14:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/11/diary-170611-01/">Starting point 2017.6.11</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2017-6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Blog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+  <div id="gitment-ctn"></div>
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "//xnu132.win/2018/06/12/diary-180612-01/",
+  owner: 'xnu132',
+  repo: 'gitment',
+  oauth: {
+    client_id: '3b6ab88c05e6a84b0bcb',
+    client_secret: 'd5c46fa126ff288c3c213528542424bd78ea82e7',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
+  
 
 
           </div>
@@ -454,8 +342,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
