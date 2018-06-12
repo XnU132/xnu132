@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="//xnu132.win">
   <title>数据契约（DataContract） | Xn.U的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125; 只有声明为DataContract的类型的对象可以被传送，且只有成员属">
+  <meta name="description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125;">
 <meta name="keywords" content="2018-6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据契约（DataContract）">
 <meta property="og:url" content="//xnu132.win/2018/06/12/diary-180612-01/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
-<meta property="og:description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125; 只有声明为DataContract的类型的对象可以被传送，且只有成员属">
-<meta property="og:updated_time" content="2018-06-12T03:40:21.051Z">
+<meta property="og:description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125;">
+<meta property="og:updated_time" content="2018-06-12T03:44:20.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据契约（DataContract）">
-<meta name="twitter:description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125; 只有声明为DataContract的类型的对象可以被传送，且只有成员属">
+<meta name="twitter:description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="Xn.U的博客" type="application/atom+xml">
   
@@ -206,6 +206,7 @@ var _hmt = _hmt || [];
         <p>服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。</p>
 <p>一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[DataContract]</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//….</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>只有声明为DataContract的类型的对象可以被传送，且只有成员属性会被传递，成员方法不会被传递。WCF对声明为DataContract的类型提供更加细节的控制，可以把一个成员排除在序列化范围以外，也就是说，客户端程序不会获得被排除在外的成员的任何信息，包括定义和数据。默认情况下，所有的成员属性都被排除在外，因此需要把每一个要传送的成员声明为DataMember，如下所示。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">[DataContract]</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span></span></div><div class="line">&#123;</div><div class="line">    [DataMember]</div><div class="line">    <span class="keyword">public</span> <span class="built_in">string</span> UserName</div><div class="line">    &#123;</div><div class="line">        get;</div><div class="line">        <span class="built_in">set</span>;</div><div class="line">    &#125;</div><div class="line">    [DataMember]</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Age</div><div class="line">    &#123;</div><div class="line">        get;</div><div class="line">        <span class="built_in">set</span>;</div><div class="line">    &#125;</div><div class="line">    [DataMember]</div><div class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Location</div><div class="line">    &#123;</div><div class="line">        get;</div><div class="line">        <span class="built_in">set</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Zodiac</div><div class="line">    &#123;</div><div class="line">        get;</div><div class="line">        <span class="built_in">set</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>上面这段代码把UserInfo类声明为DataContract，将UserName、Age、Location这3个属性声明为DataMember（数据成员）。Zodiac成员没有被声明为DataMember，因此在交换数据时，不会传输Zodiac的任何信息。</p>
