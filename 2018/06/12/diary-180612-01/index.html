@@ -15,7 +15,7 @@
 <meta property="og:url" content="//xnu132.win/2018/06/12/diary-180612-01/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
 <meta property="og:description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125;">
-<meta property="og:updated_time" content="2018-06-12T03:49:50.160Z">
+<meta property="og:updated_time" content="2018-06-12T03:54:26.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据契约（DataContract）">
 <meta name="twitter:description" content="服务契约定义了远程访问对象和可供调用的方法，数据契约则是服务端和客户端之间要传送的自定义数据类型。 一旦声明一个类型为DataContract，那么该类型就可以被序列化在服务端和客户端之间传送，如下所示。 123456[DataContract]public class UserInfo&amp;#123;    //….&amp;#125;">
@@ -223,6 +223,9 @@ var _hmt = _hmt || [];
 <p>User成员被声明为MessageBody（消息体）的一个成员，AuthKey被声明为消息头（MessageHeader）的一个成员。这个类将可以生成如下的SOAP消息。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">s:Envelope</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">s:Header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a:Action</span> <span class="attr">s:mustUnderstand</span>=<span class="string">"1"</span>&gt;</span>http://UserMessage/Action<span class="tag">&lt;/<span class="name">a:Action</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">h:AuthKey</span> <span class="attr">s:mustUnderstand</span>=<span class="string">"1"</span> <span class="attr">xmlns:h</span>=<span class="string">"http://www.wcf.com"</span>&gt;</span>xxxx<span class="tag">&lt;/<span class="name">h:AuthKey</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">s:Header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">s:Body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">UserMessage</span> <span class="attr">xmlns</span>=<span class="string">"Microsoft.WCF.Documentation"</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">User</span> <span class="attr">xmlns</span>=<span class="string">"http://www.wcf.com"</span>&gt;</span>abcd<span class="tag">&lt;/<span class="name">User</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">UserMessage</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">s:Body</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;/<span class="name">s:Envelope</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>MessageHeader中，MustUnderstand参数表示读取该头的程序必须能够识别头的内容，否则不能继续处理。Name/Namespace的作用与前面的元素相同。另有Relay参数，若为true，头的内容被接收到以后会在响应消息中回发给消息发送端。</p>
+<blockquote>
+<p>转载自（数据契约（DataContract） - 子夜. - 博客园 <a href="https://www.cnblogs.com/Gavinzhao/archive/2010/06/01/1748736.html）" target="_blank" rel="external">https://www.cnblogs.com/Gavinzhao/archive/2010/06/01/1748736.html）</a></p>
+</blockquote>
 
       
 
