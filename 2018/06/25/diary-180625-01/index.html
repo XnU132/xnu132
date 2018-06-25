@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="//xnu132.win">
   <title>SQL中JOIN的作用 | Xn.U的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先简单介绍一下JOIN语法table1:左表；table2:右表。 JOIN 按照功能大致分为如下三类：  INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。  LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。  RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全记录，">
+  <meta name="description" content="首先简单介绍一下JOIN语法table1:左表；table2:右表。 JOIN 按照功能大致分为如下三类： 1.INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。 2.LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。 3.RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全">
 <meta name="keywords" content="2018-6,SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL中JOIN的作用">
 <meta property="og:url" content="//xnu132.win/2018/06/25/diary-180625-01/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
-<meta property="og:description" content="首先简单介绍一下JOIN语法table1:左表；table2:右表。 JOIN 按照功能大致分为如下三类：  INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。  LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。  RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全记录，">
+<meta property="og:description" content="首先简单介绍一下JOIN语法table1:左表；table2:右表。 JOIN 按照功能大致分为如下三类： 1.INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。 2.LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。 3.RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全">
 <meta property="og:image" content="//xnu132.win/assets/blogImg/DP-180625-01.png">
 <meta property="og:image" content="//xnu132.win/assets/blogImg/DP-180625-02.png">
 <meta property="og:image" content="//xnu132.win/assets/blogImg/DP-180625-03.png">
 <meta property="og:image" content="//xnu132.win/assets/blogImg/DP-180625-04.png">
 <meta property="og:image" content="//xnu132.win/assets/blogImg/DP-180625-05.png">
-<meta property="og:updated_time" content="2018-06-25T02:20:49.960Z">
+<meta property="og:updated_time" content="2018-06-25T02:21:28.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL中JOIN的作用">
-<meta name="twitter:description" content="首先简单介绍一下JOIN语法table1:左表；table2:右表。 JOIN 按照功能大致分为如下三类：  INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。  LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。  RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全记录，">
+<meta name="twitter:description" content="首先简单介绍一下JOIN语法table1:左表；table2:右表。 JOIN 按照功能大致分为如下三类： 1.INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。 2.LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。 3.RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全">
 <meta name="twitter:image" content="//xnu132.win/assets/blogImg/DP-180625-01.png">
   
     <link rel="alternative" href="/atom.xml" title="Xn.U的博客" type="application/atom+xml">
@@ -211,14 +211,9 @@ var _hmt = _hmt || [];
       
         <h5 id="首先简单介绍一下JOIN语法"><a href="#首先简单介绍一下JOIN语法" class="headerlink" title="首先简单介绍一下JOIN语法"></a>首先简单介绍一下JOIN语法</h5><p>table1:左表；table2:右表。</p>
 <p>JOIN 按照功能大致分为如下三类：</p>
-<ol>
-<li><p>INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。</p>
-</li>
-<li><p>LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。</p>
-</li>
-<li><p>RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全记录，即是左表（table1）并无匹配对应记录。</p>
-</li>
-</ol>
+<p>1.INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。</p>
+<p>2.LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。</p>
+<p>3.RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全记录，即是左表（table1）并无匹配对应记录。</p>
 <p><em>注意：mysql不支持Full join,不过可以通过UNION 关键字来合并 LEFT JOIN 与 RIGHT JOIN来模拟FULL join.</em></p>
 <a id="more"></a>
 <p>接下来给出一个列子用于解释下面几种分类。如下两个表(A,B)</p>
