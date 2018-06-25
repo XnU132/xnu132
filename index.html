@@ -184,6 +184,132 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-diary-180625-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/25/diary-180625-01/">SQL中JOIN的作用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/25/diary-180625-01/" class="archive-article-date">
+  	<time datetime="2018-06-25T01:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="首先简单介绍一下JOIN语法"><a href="#首先简单介绍一下JOIN语法" class="headerlink" title="首先简单介绍一下JOIN语法"></a>首先简单介绍一下JOIN语法</h5><p>table1:左表；table2:右表。</p>
+<p>JOIN 按照功能大致分为如下三类：</p>
+<ol>
+<li><p>INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。</p>
+</li>
+<li><p>LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。</p>
+</li>
+<li><p>RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全记录，即是左表（table1）并无匹配对应记录。</p>
+</li>
+</ol>
+<p><em>注意：mysql不支持Full join,不过可以通过UNION 关键字来合并 LEFT JOIN 与 RIGHT JOIN来模拟FULL join.</em></p>
+<p>接下来给出一个列子用于解释下面几种分类。如下两个表(A,B)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select A.id,A.name,B.name from A,B where A.id=B.id;</div><div class="line">+----+-----------+-------------+</div><div class="line">| id | name      | name        |</div><div class="line">+----+-----------+-------------+</div><div class="line">|  1 | Pirate    | Rutabaga    |</div><div class="line">|  2 | Monkey    | Pirate      |</div><div class="line">|  3 | Ninja     | Darth Vader |</div><div class="line">|  4 | Spaghetti | Ninja       |</div><div class="line">+----+-----------+-------------+</div><div class="line">4 rows in set (0.00 sec)</div></pre></td></tr></table></figure>
+<h5 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h5><p>内连接，也叫等值连接，inner join产生同时符合A和B的一组数据。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from A inner join B on A.name = B.name;</div><div class="line">+----+--------+----+--------+</div><div class="line">| id | name   | id | name   |</div><div class="line">+----+--------+----+--------+</div><div class="line">|  1 | Pirate |  2 | Pirate |</div><div class="line">|  3 | Ninja  |  4 | Ninja  |</div><div class="line">+----+--------+----+--------+</div></pre></td></tr></table></figure>
+<p><img src="/assets/blogImg/DP-180625-01.png" alt=""></p>
+<h5 id="LEFT-JOIN"><a href="#LEFT-JOIN" class="headerlink" title="LEFT JOIN"></a>LEFT JOIN</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from A left join B on A.name = B.name;</div><div class="line">#或者：select * from A left outer join B on A.name = B.name;</div><div class="line"></div><div class="line">+----+-----------+------+--------+</div><div class="line">| id | name      | id   | name   |</div><div class="line">+----+-----------+------+--------+</div><div class="line">|  1 | Pirate    |    2 | Pirate |</div><div class="line">|  2 | Monkey    | NULL | NULL   |</div><div class="line">|  3 | Ninja     |    4 | Ninja  |</div><div class="line">|  4 | Spaghetti | NULL | NULL   |</div><div class="line">+----+-----------+------+--------+</div><div class="line">4 rows in set (0.00 sec)</div></pre></td></tr></table></figure>
+<p>left join,（或left outer join:在Mysql中两者等价，推荐使用left join.）左连接从左表(A)产生一套完整的记录,与匹配的记录(右表(B)) .如果没有匹配,右侧将包含null。</p>
+<p><img src="/assets/blogImg/DP-180625-02.png" alt=""></p>
+<p>如果想只从左表(A)中产生一套记录，但不包含右表(B)的记录，可以通过设置where语句来执行，如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from A left join B on A.name=B.name where A.id is null or B.id is null;</div><div class="line">+----+-----------+------+------+</div><div class="line">| id | name      | id   | name |</div><div class="line">+----+-----------+------+------+</div><div class="line">|  2 | Monkey    | NULL | NULL |</div><div class="line">|  4 | Spaghetti | NULL | NULL |</div><div class="line">+----+-----------+------+------+</div><div class="line">2 rows in set (0.00 sec)</div></pre></td></tr></table></figure>
+<p><img src="/assets/blogImg/DP-180625-03.png" alt=""></p>
+<p>同理，还可以模拟inner join. 如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from A left join B on A.name=B.name where A.id is not null and B.id is not null;</div><div class="line">+----+--------+------+--------+</div><div class="line">| id | name   | id   | name   |</div><div class="line">+----+--------+------+--------+</div><div class="line">|  1 | Pirate |    2 | Pirate |</div><div class="line">|  3 | Ninja  |    4 | Ninja  |</div><div class="line">+----+--------+------+--------+</div><div class="line">2 rows in set (0.00 sec)</div></pre></td></tr></table></figure>
+<p>求差集：</p>
+<p>根据上面的例子可以求差集，如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM A LEFT JOIN B ON A.name = B.name</div><div class="line">WHERE B.id IS NULL</div><div class="line">union</div><div class="line">SELECT * FROM A right JOIN B ON A.name = B.name</div><div class="line">WHERE A.id IS NULL;</div><div class="line"># 结果</div><div class="line">+------+-----------+------+-------------+</div><div class="line">| id   | name      | id   | name        |</div><div class="line">+------+-----------+------+-------------+</div><div class="line">|    2 | Monkey    | NULL | NULL        |</div><div class="line">|    4 | Spaghetti | NULL | NULL        |</div><div class="line">| NULL | NULL      |    1 | Rutabaga    |</div><div class="line">| NULL | NULL      |    3 | Darth Vader |</div><div class="line">+------+-----------+------+-------------+</div></pre></td></tr></table></figure>
+<p><img src="/assets/blogImg/DP-180625-04.png" alt=""></p>
+<p>再举个简单的栗子：<br>有两表：a,b<br>其中a表中的字段为a_id，b中的字段为b_id,b_no;记录如下：</p>
+<p>a:        b:<br>a_id      b_id  b_no<br>－－－    －－－－－－<br> 2          2    3<br> 3          3    5<br> 5          5    6</p>
+<blockquote>
+<p>执行语句:select a.a_id,b.b_no from a left join b on (a.a_id=b.b_id and b.b_id&gt;5)</p>
+</blockquote>
+<p>效果如下：</p>
+<p>a_id      b_no<br>－－－－－－－－－－<br>  5          6<br>  2          null<br>  3          null</p>
+<h5 id="Right-join"><a href="#Right-join" class="headerlink" title="Right join"></a>Right join</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from A right join B on A.name = B.name;</div><div class="line">+------+--------+----+-------------+</div><div class="line">| id   | name   | id | name        |</div><div class="line">+------+--------+----+-------------+</div><div class="line">| NULL | NULL   |  1 | Rutabaga    |</div><div class="line">|    1 | Pirate |  2 | Pirate      |</div><div class="line">| NULL | NULL   |  3 | Darth Vader |</div><div class="line">|    3 | Ninja  |  4 | Ninja       |</div><div class="line">+------+--------+----+-------------+</div><div class="line">4 rows in set (0.00 sec)</div></pre></td></tr></table></figure>
+<p>同left join。</p>
+<h5 id="Cross-join"><a href="#Cross-join" class="headerlink" title="Cross join"></a>Cross join</h5><p>cross join：交叉连接，得到的结果是两个表的乘积，即笛卡尔积</p>
+<blockquote>
+<p>笛卡尔（Descartes）乘积又叫直积。假设集合A={a,b}，集合B={0,1,2}，则两个集合的笛卡尔积为{(a,0),(a,1),(a,2),(b,0),(b,1), (b,2)}。可以扩展到多个集合的情况。类似的例子有，如果A表示某学校学生的集合，B表示该学校所有课程的集合，则A与B的笛卡尔积表示所有可能的选课情况。</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from A cross join B;</div><div class="line">+----+-----------+----+-------------+</div><div class="line">| id | name      | id | name        |</div><div class="line">+----+-----------+----+-------------+</div><div class="line">|  1 | Pirate    |  1 | Rutabaga    |</div><div class="line">|  2 | Monkey    |  1 | Rutabaga    |</div><div class="line">|  3 | Ninja     |  1 | Rutabaga    |</div><div class="line">|  4 | Spaghetti |  1 | Rutabaga    |</div><div class="line">|  1 | Pirate    |  2 | Pirate      |</div><div class="line">|  2 | Monkey    |  2 | Pirate      |</div><div class="line">|  3 | Ninja     |  2 | Pirate      |</div><div class="line">|  4 | Spaghetti |  2 | Pirate      |</div><div class="line">|  1 | Pirate    |  3 | Darth Vader |</div><div class="line">|  2 | Monkey    |  3 | Darth Vader |</div><div class="line">|  3 | Ninja     |  3 | Darth Vader |</div><div class="line">|  4 | Spaghetti |  3 | Darth Vader |</div><div class="line">|  1 | Pirate    |  4 | Ninja       |</div><div class="line">|  2 | Monkey    |  4 | Ninja       |</div><div class="line">|  3 | Ninja     |  4 | Ninja       |</div><div class="line">|  4 | Spaghetti |  4 | Ninja       |</div><div class="line">+----+-----------+----+-------------+</div><div class="line">16 rows in set (0.00 sec)</div><div class="line"></div><div class="line">#再执行：mysql&gt; select * from A inner join B; 试一试</div><div class="line"></div><div class="line">#在执行mysql&gt; select * from A cross join B on A.name = B.name; 试一试</div></pre></td></tr></table></figure>
+<p>实际上，在 MySQL 中（仅限于 MySQL） CROSS JOIN 与 INNER JOIN 的表现是一样的，在不指定 ON 条件得到的结果都是笛卡尔积，反之取得两个表完全匹配的结果。<br>INNER JOIN 与 CROSS JOIN 可以省略 INNER 或 CROSS 关键字，因此下面的 SQL 效果是一样的：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">... FROM table1 INNER JOIN table2</div><div class="line">... FROM table1 CROSS JOIN table2</div><div class="line">... FROM table1 JOIN table2</div></pre></td></tr></table></figure>
+<h5 id="Full-join"><a href="#Full-join" class="headerlink" title="Full join"></a>Full join</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from A left join B on B.name = A.name</div><div class="line">    -&gt; union</div><div class="line">    -&gt; select * from A right join B on B.name = A.name;</div><div class="line">+------+-----------+------+-------------+</div><div class="line">| id   | name      | id   | name        |</div><div class="line">+------+-----------+------+-------------+</div><div class="line">|    1 | Pirate    |    2 | Pirate      |</div><div class="line">|    2 | Monkey    | NULL | NULL        |</div><div class="line">|    3 | Ninja     |    4 | Ninja       |</div><div class="line">|    4 | Spaghetti | NULL | NULL        |</div><div class="line">| NULL | NULL      |    1 | Rutabaga    |</div><div class="line">| NULL | NULL      |    3 | Darth Vader |</div><div class="line">+------+-----------+------+-------------+</div><div class="line">6 rows in set (0.00 sec)</div></pre></td></tr></table></figure>
+<p>全连接产生的所有记录（双方匹配记录）在表A和表B。如果没有匹配,则对面将包含null。<br><img src="/assets/blogImg/DP-180625-05.png" alt=""></p>
+<blockquote>
+<p>性能分析等详细内容参考 → Mysql Join语法解析与性能分析 - BeginMan - 博客园 <a href="https://www.cnblogs.com/BeginMan/p/3754322.html（本文内容引用自）" target="_blank" rel="external">https://www.cnblogs.com/BeginMan/p/3754322.html（本文内容引用自）</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2018-6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/25/diary-180625-01/">全 文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-diary-180612-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -523,104 +649,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-diary-170817-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/05/diary-170817-01/">【网页书签】</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/05/diary-170817-01/" class="archive-article-date">
-  	<time datetime="2017-09-05T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p><a href="http://blog.csdn.net/chenhongwu666/article/details/37726553" target="_blank" rel="external">C# 线程间不能调用剪切板的问题 - 编程之家 - CSDN博客</a></p>
-</li>
-<li><p><a href="http://blog.csdn.net/hotmee/article/details/52459959" target="_blank" rel="external">C# 以MDF文件链接数据库 - 隔壁老王的博客 - CSDN博客</a></p>
-</li>
-<li><p><a href="http://blog.csdn.net/GC_chao/article/details/51518639" target="_blank" rel="external">Markdown-入门指南及网站整合 - 努力在追梦的路上 - CSDN博客</a></p>
-</li>
-<li><p><a href="https://maxiang.io/" target="_blank" rel="external">Untitled - 马克飞象 - 专为印象笔记打造的Markdown编辑器</a></p>
-</li>
-<li><p><a href="https://www.cnblogs.com/yelanggu/p/6224587.html" target="_blank" rel="external">C# 自定义控件VS用户控件 - 野狼谷 - 博客园</a></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/09/05/diary-170817-01/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2017-9</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书签</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/05/diary-170817-01/">全 文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -792,6 +823,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">2018-6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
             
             <div class="clearfix"></div>
