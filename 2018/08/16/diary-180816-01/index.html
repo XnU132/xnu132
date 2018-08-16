@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//xnu132.win">
-  <title>Archives: 2018/5 | Xn.U的博客</title>
+  <title>Winform解决界面重绘闪烁的问题 | Xn.U的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大四狗一枚，自学编程">
-<meta name="keywords" content="C#,javascript,html,mssql,css,unity,photoshop">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xn.U的博客">
-<meta property="og:url" content="//xnu132.win/archives/2018/05/index.html">
+  <meta name="description" content="在窗体或用户控件中重写CreateParams123456789protected override CreateParams CreateParams&amp;#123;	get	&amp;#123;		CreateParams cp = base.CreateParams;		cp.ExStyle |= 0x02000000;		return cp;	&amp;#125;&amp;#125;">
+<meta name="keywords" content="C#,2018-8,WinForm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Winform解决界面重绘闪烁的问题">
+<meta property="og:url" content="//xnu132.win/2018/08/16/diary-180816-01/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
-<meta property="og:description" content="大四狗一枚，自学编程">
+<meta property="og:description" content="在窗体或用户控件中重写CreateParams123456789protected override CreateParams CreateParams&amp;#123;	get	&amp;#123;		CreateParams cp = base.CreateParams;		cp.ExStyle |= 0x02000000;		return cp;	&amp;#125;&amp;#125;">
+<meta property="og:updated_time" content="2018-08-16T08:51:40.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xn.U的博客">
-<meta name="twitter:description" content="大四狗一枚，自学编程">
+<meta name="twitter:title" content="Winform解决界面重绘闪烁的问题">
+<meta name="twitter:description" content="在窗体或用户控件中重写CreateParams123456789protected override CreateParams CreateParams&amp;#123;	get	&amp;#123;		CreateParams cp = base.CreateParams;		cp.ExStyle |= 0x02000000;		return cp;	&amp;#125;&amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="Xn.U的博客" type="application/atom+xml">
   
@@ -182,60 +183,133 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-diary-180816-01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/29/diary-180509-01/" class="archive-article-date">
-  	<time datetime="2018-05-29T03:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/29/diary-180509-01/">几个值得收藏的.NET开源项目</a>
+    <h1 class="article-title" itemprop="name">
+      Winform解决界面重绘闪烁的问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/16/diary-180816-01/" class="archive-article-date">
+  	<time datetime="2018-08-16T08:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在窗体或用户控件中重写CreateParams<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">protected</span> <span class="keyword">override</span> CreateParams CreateParams</div><div class="line">&#123;</div><div class="line">	<span class="keyword">get</span></div><div class="line">	&#123;</div><div class="line">		CreateParams cp = <span class="keyword">base</span>.CreateParams;</div><div class="line">		cp.ExStyle |= <span class="number">0x02000000</span>;</div><div class="line">		<span class="keyword">return</span> cp;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2018-5</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">2018-8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">WinForm</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/06/25/diary-180625-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL中JOIN的作用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录？想要的话就去找吧，我把一切都放在那里了！
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div>
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "//xnu132.win/2018/08/16/diary-180816-01/",
+  owner: 'xnu132',
+  repo: 'gitment',
+  oauth: {
+    client_id: '3b6ab88c05e6a84b0bcb',
+    client_secret: 'd5c46fa126ff288c3c213528542424bd78ea82e7',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
+  
 
 
           </div>
@@ -258,8 +332,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
