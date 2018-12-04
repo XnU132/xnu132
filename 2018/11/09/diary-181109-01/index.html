@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="//xnu132.win">
   <title>Linq取实体类集合中的某个属性转化为数组 | Xn.U的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345678910class Demo&amp;#123;  public int Id &amp;#123; get; set; &amp;#125;  public string Name &amp;#123; get; set; &amp;#125;&amp;#125;static void Main(string[] args)&amp;#123;  List&amp;lt;Demo&amp;gt; data = new List&amp;lt;Demo&amp;gt;(">
+  <meta name="description" content="123456789101112class Demo&amp;#123;  public int Id &amp;#123; get; set; &amp;#125;  public string Name &amp;#123; get; set; &amp;#125;&amp;#125;static void Main(string[] args)&amp;#123;  List&amp;lt;Demo&amp;gt; data = new List&amp;lt;Demo&amp;">
 <meta name="keywords" content="C#,2018-11,Linq">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linq取实体类集合中的某个属性转化为数组">
 <meta property="og:url" content="//xnu132.win/2018/11/09/diary-181109-01/index.html">
 <meta property="og:site_name" content="Xn.U的博客">
-<meta property="og:description" content="12345678910class Demo&amp;#123;  public int Id &amp;#123; get; set; &amp;#125;  public string Name &amp;#123; get; set; &amp;#125;&amp;#125;static void Main(string[] args)&amp;#123;  List&amp;lt;Demo&amp;gt; data = new List&amp;lt;Demo&amp;gt;(">
-<meta property="og:updated_time" content="2018-11-09T01:37:32.865Z">
+<meta property="og:description" content="123456789101112class Demo&amp;#123;  public int Id &amp;#123; get; set; &amp;#125;  public string Name &amp;#123; get; set; &amp;#125;&amp;#125;static void Main(string[] args)&amp;#123;  List&amp;lt;Demo&amp;gt; data = new List&amp;lt;Demo&amp;">
+<meta property="og:updated_time" content="2018-12-04T02:45:49.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linq取实体类集合中的某个属性转化为数组">
-<meta name="twitter:description" content="12345678910class Demo&amp;#123;  public int Id &amp;#123; get; set; &amp;#125;  public string Name &amp;#123; get; set; &amp;#125;&amp;#125;static void Main(string[] args)&amp;#123;  List&amp;lt;Demo&amp;gt; data = new List&amp;lt;Demo&amp;gt;(">
+<meta name="twitter:description" content="123456789101112class Demo&amp;#123;  public int Id &amp;#123; get; set; &amp;#125;  public string Name &amp;#123; get; set; &amp;#125;&amp;#125;static void Main(string[] args)&amp;#123;  List&amp;lt;Demo&amp;gt; data = new List&amp;lt;Demo&amp;">
   
     <link rel="alternative" href="/atom.xml" title="Xn.U的博客" type="application/atom+xml">
   
@@ -203,7 +203,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Demo</span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></div><div class="line">&#123;</div><div class="line">  List&lt;Demo&gt; data = <span class="keyword">new</span> List&lt;Demo&gt;();</div><div class="line">  <span class="keyword">string</span>[] names = (<span class="keyword">from</span> x <span class="keyword">in</span> data <span class="keyword">select</span> x.Name).ToArray();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Demo</span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></div><div class="line">&#123;</div><div class="line">  List&lt;Demo&gt; data = <span class="keyword">new</span> List&lt;Demo&gt;();</div><div class="line">  <span class="keyword">string</span>[] names = (<span class="keyword">from</span> x <span class="keyword">in</span> data <span class="keyword">select</span> x.Name).ToArray();</div><div class="line">  <span class="comment">//或者</span></div><div class="line">  <span class="keyword">string</span>[] names = data.Select(x=&gt;x.Name).ToArray();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
